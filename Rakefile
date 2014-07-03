@@ -40,7 +40,7 @@ end
 require 'rubocop/rake_task'
 RuboCop::RakeTask.new(:rubocop)
 
-task default:  [:rubocop, :spec]
+task default:  [:rubocop, :simplecov]
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
