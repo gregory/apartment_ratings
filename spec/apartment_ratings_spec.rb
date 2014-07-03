@@ -28,6 +28,7 @@ describe ApartmentRatings do
       expect(subject.username).to eq username
       expect(subject.password).to eq password
       expect(subject.format).to eq subject.class::DEFAULTS[:format]
+      expect(subject.api_base_path).to eq subject.class::DEFAULTS[:api_base_path]
     end
   end
 end
