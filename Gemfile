@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'hashie', '~> 3.1.0'
+gem 'hashie', git: 'https://github.com/intridea/hashie.git', branch: :master
+gem 'faraday', '~> 0.9.0'
 
 group :development do
   gem 'pry'

@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/intridea/hashie.git
+  revision: 8b4ffbd6aa2ff9e6aeccd8181c82a85ffd1eea7a
+  branch: master
+  specs:
+    hashie (3.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -20,7 +27,6 @@ GEM
       multi_json (>= 1.7.5, < 2.0)
       nokogiri (~> 1.6.0)
       oauth2
-    hashie (3.1.0)
     highline (1.6.21)
     jeweler (2.0.1)
       builder
@@ -92,7 +98,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0)
-  hashie (~> 3.1.0)
+  faraday (~> 0.9.0)
+  hashie!
   jeweler (~> 2.0.1)
   pry
   rdoc (~> 3.12)
