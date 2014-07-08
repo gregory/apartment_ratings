@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "VERSION",
+    "apartment_ratings.gemspec",
     "lib/apartment_ratings.rb",
     "lib/apartment_ratings/address.rb",
     "lib/apartment_ratings/client.rb",
