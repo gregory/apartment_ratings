@@ -74,7 +74,7 @@ describe ApartmentRatings::Complex do
 
       it 'transforms the keys properly' do
         expect(subject.name).to eq hash[:propertyName]
-        expect(subject.propertyAddress).to be_a ApartmentRatings::Address
+        expect(subject.address).to be_a ApartmentRatings::Address
       end
     end
   end
