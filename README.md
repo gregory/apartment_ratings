@@ -1,5 +1,7 @@
 # ApartmentRatings [![Build Status](https://travis-ci.org/gregory/apartment_ratings.svg)](https://travis-ci.org/gregory/apartment_ratings)
 
+## THIS IS A WIP, WATING FOR CREDENTIALS TO TEST :)
+
 Description goes here.
 
 ## Contributing to apartment_ratings
