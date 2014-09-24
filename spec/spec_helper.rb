@@ -19,6 +19,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rspec'
+require 'yaml'
 require 'apartment_ratings'
 
 # Requires supporting files with custom matchers and macros, etc,
@@ -27,7 +28,15 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 RSpec.configure do |config|
   config.before :suite do
-    ApartmentRatings.configure do
+    ApartmentRatings.configure do |conf|
+      credentials = settings['credentials']
+
+      conf.username = credentials['username']
+      conf.password = credentials['password']
     end
+  end
+
+  def settings
+    @settings ||= YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'spec.yml'))
   end
 end
