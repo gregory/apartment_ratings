@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["gregory"]
-  s.date = "2014-07-08"
+  s.date = "2014-09-25"
   s.description = "Ruby client for ApartmentRating API"
   s.email = "greg2502@gmail.com"
   s.extra_rdoc_files = [
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/apartment_ratings/client.rb",
     "lib/apartment_ratings/complex.rb",
     "lib/apartment_ratings/configuration.rb",
+    "lib/apartment_ratings/errors.rb",
     "lib/apartment_ratings/review.rb",
     "lib/apartment_ratings/reviews/rating.rb",
     "lib/apartment_ratings/reviews/response.rb",
@@ -43,6 +44,7 @@ Gem::Specification.new do |s|
     "spec/apartment_ratings/reviews/rating_spec.rb",
     "spec/apartment_ratings/reviews/response_spec.rb",
     "spec/apartment_ratings_spec.rb",
+    "spec/spec.yml.sample",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/gregory/apartment_ratings"
@@ -55,8 +57,10 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<hashie>, [">= 0"])
+      s.add_runtime_dependency(%q<hashie>, ["~> 3.3.1"])
+      s.add_runtime_dependency(%q<tnt>, ["~> 0.1.0"])
       s.add_runtime_dependency(%q<faraday>, ["~> 0.9.0"])
+      s.add_runtime_dependency(%q<faraday_middleware>, ["~> 0.9.0"])
       s.add_development_dependency(%q<pry>, [">= 0"])
       s.add_development_dependency(%q<rr>, ["~> 1.1.2"])
       s.add_development_dependency(%q<rspec>, ["~> 3.0"])
@@ -66,8 +70,10 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<rubocop>, [">= 0.21.0"])
     else
-      s.add_dependency(%q<hashie>, [">= 0"])
+      s.add_dependency(%q<hashie>, ["~> 3.3.1"])
+      s.add_dependency(%q<tnt>, ["~> 0.1.0"])
       s.add_dependency(%q<faraday>, ["~> 0.9.0"])
+      s.add_dependency(%q<faraday_middleware>, ["~> 0.9.0"])
       s.add_dependency(%q<pry>, [">= 0"])
       s.add_dependency(%q<rr>, ["~> 1.1.2"])
       s.add_dependency(%q<rspec>, ["~> 3.0"])
@@ -78,8 +84,10 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rubocop>, [">= 0.21.0"])
     end
   else
-    s.add_dependency(%q<hashie>, [">= 0"])
+    s.add_dependency(%q<hashie>, ["~> 3.3.1"])
+    s.add_dependency(%q<tnt>, ["~> 0.1.0"])
     s.add_dependency(%q<faraday>, ["~> 0.9.0"])
+    s.add_dependency(%q<faraday_middleware>, ["~> 0.9.0"])
     s.add_dependency(%q<pry>, [">= 0"])
     s.add_dependency(%q<rr>, ["~> 1.1.2"])
     s.add_dependency(%q<rspec>, ["~> 3.0"])
