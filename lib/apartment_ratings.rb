@@ -4,29 +4,30 @@ require 'tnt'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'apartment_ratings'))
 
 module ApartmentRatings
-  autoload :Configuration, 'configuration'
-  autoload :Client, 'client'
-  autoload :Address, 'address'
-  autoload :Complex, 'complex'
-  autoload :Review, 'review'
-  autoload :Errors, 'errors'
-
   module Reviews
     autoload :Rating, 'reviews/rating'
     autoload :Response, 'reviews/response'
   end
+
+  require 'review'
+  require 'configuration'
+  require 'client'
+  require 'errors'
+  require 'address'
+  require 'complex'
+
 
   class<<self
     attr_reader :config
   end
 
   def self.configure
-    @config = Configuration.new.tap { |configuration| yield(configuration) }
+    @config = ApartmentRatings::Configuration.new.tap { |configuration| yield(configuration) }
   end
 
   def self.credentials
     if config.nil?
-      fail InvalidConfig
+      fail ApartmentRatings::Errors::InvalidConfig
     else
       config.select { |key, _| [:username, :password].include?(key) }
     end
@@ -34,11 +35,11 @@ module ApartmentRatings
 
   def self.client
     @client ||= begin
-      fail Errors::InvalidConfig if config.nil?
+      fail ApartmentRatings::Errors::InvalidConfig if config.nil?
       options = {
         api_base_path: config.api_base_path
       }
-      Client.new(options)
+      ApartmentRatings::Client.new(options)
     end
   end
 
@@ -49,7 +50,7 @@ module ApartmentRatings
 
     if !result['errors'].nil? && !result['errors']['serviceToken'].nil?
       # Mostlikely the token expired, lets try to refresh it
-      fail Errors::InvalidToken unless errors_opts[:token] < ApartmentRatings.config.max_token_retry
+      fail ApartmentRatings::Errors::InvalidToken unless errors_opts[:token] < ApartmentRatings.config.max_token_retry
 
       client.refresh_token
       return post(url, params, headers, { token: (errors_opts[:token] + 1) }, &block)

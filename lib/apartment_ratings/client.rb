@@ -31,7 +31,7 @@ module ApartmentRatings
       if result['success']
         @token = result['response']
       else
-        fail Errors::InvalidToken
+        fail ApartmentRatings::Errors::InvalidToken
       end
     end
   end

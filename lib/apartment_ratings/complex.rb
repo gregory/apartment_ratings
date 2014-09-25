@@ -16,9 +16,9 @@ module ApartmentRatings
     property :percentageRecomanded
     property :reviews
 
-    coerce_key :address, Address
-    coerce_key :averageRating, Hash[String => Reviews::Rating]
-    coerce_key :reviews, Set[Review]
+    coerce_key :address, ApartmentRatings::Address
+    coerce_key :averageRating, Hash[String => ApartmentRatings::Reviews::Rating]
+    coerce_key :reviews, Set[ApartmentRatings::Review]
 
     def self.all
       ApartmentRatings.post('index') do |result|
@@ -36,7 +36,7 @@ module ApartmentRatings
           default_options = { id: id }
           new default_options.merge(result)
         else
-          fail Errors::InvalidComplexId.new(id, result['errorMessage'])
+          fail ApartmentRatings::Errors::InvalidComplexId.new(id, result['errorMessage'])
         end
       end
     end

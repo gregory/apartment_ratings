@@ -11,7 +11,7 @@ module ApartmentRatings
     property :updated_at, from: :lastUpdatedDate
     property :url
 
-    coerce_key :responses, Set[Reviews::Response]
-    coerce_key :rating, Hash[String => Reviews::Rating]
+    coerce_key :responses, Set[ApartmentRatings::Reviews::Response]
+    coerce_key :rating, Hash[String => ApartmentRatings::Reviews::Rating]
   end
 end
