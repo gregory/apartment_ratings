@@ -37,6 +37,6 @@ RSpec.configure do |config|
   end
 
   def settings
-    @settings ||= YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'spec.yml'))
+    @settings ||= YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'spec.yml'))
   end
 end

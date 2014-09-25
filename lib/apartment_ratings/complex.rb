@@ -33,7 +33,7 @@ module ApartmentRatings
     def self.find(id)
       ApartmentRatings.post('complex', complexId: id) do |result|
         if result['success']
-          default_options = {id: id}
+          default_options = { id: id }
           new default_options.merge(result)
         else
           fail Errors::InvalidComplexId.new(id, result['errorMessage'])

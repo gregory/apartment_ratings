@@ -28,7 +28,7 @@ module ApartmentRatings
     if config.nil?
       fail InvalidConfig
     else
-      config.select { |key,_| [:username, :password].include?(key) }
+      config.select { |key, _| [:username, :password].include?(key) }
     end
   end
 
@@ -42,7 +42,7 @@ module ApartmentRatings
     end
   end
 
-  def self.post(url=nil, params={}, headers=nil, errors_opts={token: 0}, &block)
+  def self.post(url = nil, params = {}, headers = nil, errors_opts = { token: 0 }, &block)
     payload     = default_params.merge(params)
     json_result = client.connection.post(url, payload, headers).body
     result      = JSON.parse json_result
@@ -52,7 +52,7 @@ module ApartmentRatings
       fail Errors::InvalidToken unless errors_opts[:token] < ApartmentRatings.config.max_token_retry
 
       client.refresh_token
-      return post(url, params, headers, { token: errors_opts[:token]+1 }, &block)
+      return post(url, params, headers, { token: (errors_opts[:token] + 1) }, &block)
     else
       block.call(result)
     end
