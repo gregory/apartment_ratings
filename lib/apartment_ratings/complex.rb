@@ -25,7 +25,7 @@ module ApartmentRatings
         if result['success']
           result['complexes'].map { |complex_json| new complex_json }
         else
-          # TODO: handle unsuccessful response
+          fail StandardError
         end
       end
     end
@@ -36,7 +36,7 @@ module ApartmentRatings
           default_options = {id: id}
           new default_options.merge(result)
         else
-          # TODO: handle unsuccessful response
+          fail Errors::InvalidComplexId.new(id, result['errorMessage'])
         end
       end
     end

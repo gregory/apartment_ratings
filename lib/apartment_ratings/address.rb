@@ -5,7 +5,7 @@ module ApartmentRatings
     property :full_address
 
     def self.coerce(raw_address)
-      self.new({full_address: raw_address})
+      new(full_address: raw_address)
     end
   end
 end

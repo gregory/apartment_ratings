@@ -9,10 +9,10 @@ module ApartmentRatings
       path = options.fetch(:api_base_path)
 
       @connection = Faraday.new(path) do |faraday|
-        faraday.request :url_encoded #Unfortunately, we need to encode post and put params
+        faraday.request :url_encoded # Unfortunately, we need to encode post and put params
         faraday.request :json
 
-        #NOTE: Unfortunately, the response content type is not json... But we know it is.
+        # NOTE: Unfortunately, the response content type is not json... But we know it is.
         faraday.response :json, content_type: /\Atext\/html;charset=ISO-8859-1\z/
         faraday.response :logger if ApartmentRatings.config.debug
 
@@ -26,11 +26,12 @@ module ApartmentRatings
 
     def refresh_token
       @token = nil
-      result = JSON.parse @connection.post('login', ApartmentRatings.credentials.merge({ format: 'json' })).body
+      result = JSON.parse @connection.post('login', ApartmentRatings.credentials.merge(format: 'json')).body
+
       if result['success']
         @token = result['response']
       else
-        #TODO: raise error
+        fail Errors::InvalidToken
       end
     end
   end
