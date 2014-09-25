@@ -28,6 +28,7 @@ Jeweler::RubygemsDotOrgTasks.new
 require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
+  FileUtils.cp('spec/spec.yml.sample', 'spec/spec.yml')
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
