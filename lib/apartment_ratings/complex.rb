@@ -13,7 +13,7 @@ module ApartmentRatings
 
     property :apartmentRating
     property :averageRating
-    property :percentageRecomanded
+    property :percentageRecommended
     property :reviews
 
     coerce_key :address, ApartmentRatings::Address
