@@ -16,7 +16,6 @@ module ApartmentRatings
   require 'address'
   require 'complex'
 
-
   class<<self
     attr_reader :config
   end

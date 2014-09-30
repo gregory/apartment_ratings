@@ -15,7 +15,7 @@ module ApartmentRatings
     coerce_key :rating, Hash[String => ApartmentRatings::Reviews::Rating]
 
     def avg_rating
-      rating.sum{|_, rating| rating.value.nil? ? 0 : rating.value } / [rating.keys.size, 1].max.to_f
+      rating.sum { |_, rating| (rating.value.nil? ? 0 : rating.value) } / [rating.keys.size, 1].max.to_f
     end
   end
 end
