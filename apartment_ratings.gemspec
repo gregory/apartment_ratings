@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "apartment_ratings"
-  s.version = "1.0.1"
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["gregory"]
-  s.date = "2014-09-25"
+  s.date = "2014-09-30"
   s.description = "Ruby client for ApartmentRating API"
   s.email = "greg2502@gmail.com"
   s.extra_rdoc_files = [
