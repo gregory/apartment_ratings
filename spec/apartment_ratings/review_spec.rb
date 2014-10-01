@@ -36,7 +36,7 @@ describe ApartmentRatings::Review do
     subject { described_class.new(hash) }
 
     it 'build a valid Review from a hash' do
-      expect(subject.datePosted).to eq hash[:datePosted]
+      expect(subject.created_at).to eq hash[:datePosted]
       expect(subject.text).to eq hash[:fullReviewText]
       expect(subject.author).to eq hash[:reviewerScreenName]
       expect(subject.url).to eq hash[:url]
