@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "apartment_ratings"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["gregory"]
-  s.date = "2014-09-30"
+  s.date = "2015-12-15"
   s.description = "Ruby client for ApartmentRating API"
   s.email = "greg2502@gmail.com"
   s.extra_rdoc_files = [
@@ -50,11 +50,11 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/gregory/apartment_ratings"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.23"
+  s.rubygems_version = "2.0.14"
   s.summary = "Ruby client for ApartmentRating API"
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<hashie>, ["~> 3.3.1"])
