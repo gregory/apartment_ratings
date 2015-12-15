@@ -6,6 +6,7 @@ module ApartmentRatings
     property :created_at, from: :datePosted
     property :text, from: :fullReviewText
     property :responses
+    property :recommend
     property :author, from: :reviewerScreenName
     property :rating, from: :starRatings
     property :updated_at, from: :lastUpdatedDate
